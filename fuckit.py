@@ -27,3 +27,21 @@ def fuckit(victim):
             else:
                 break
         inspect.stack()[1][0].f_locals[victim] = module
+    if inspect.isfunction(victim) or inspect.ismethod(victim):
+        source = inspect.getsource(victim.func_code)
+        tree = _Fucker().visit(ast.parse(source))
+        ast.fix_missing_locations(tree)
+        victim.func_code = compile(tree, victim.func_name, 'exec')
+        return victim
+
+
+class _Fucker(ast.NodeTransformer):
+    def generic_visit(self, node):
+        super(_Fucker, self).generic_visit(node)
+
+        if isinstance(node, ast.stmt):
+            return ast.copy_location(ast.TryExcept(
+                body=[node],
+                handlers=[ast.ExceptHandler(type=None, name=None, body=[ast.Pass()])],
+                orelse=[]), node)
+        return node

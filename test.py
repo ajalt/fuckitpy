@@ -4,4 +4,11 @@ from fuckit import fuckit
 fuckit('broke')
 
 print broke.var
+
+@fuckit
+def f():
+    piss
+    
+f()
+
     
