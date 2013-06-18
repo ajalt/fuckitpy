@@ -1,4 +1,5 @@
 def f():
+    print 'cool'
     piss
 
 let's just assume this is a big module of shitty code.
