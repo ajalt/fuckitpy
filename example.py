@@ -5,7 +5,7 @@ fuckit(fuckit('broke'))
 @fuckit
 def ff():
     piss # Let's create a NameError
-    return 42
+    return 'This works'
     
 print ff()
 broke.f()
