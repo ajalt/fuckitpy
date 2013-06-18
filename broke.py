@@ -1,6 +1,6 @@
 def f():
-    print 'cool'
-    piss
+    broken_code
+    print 'This works'
 
 for
 
