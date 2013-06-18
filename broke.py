@@ -2,6 +2,8 @@ def f():
     print 'cool'
     piss
 
+for
+
 let's just assume this is a big module of shitty code.
 
 x = y
