@@ -53,6 +53,7 @@ import types
 import sys
 import traceback
 import functools
+import re
 
 def fuckit(victim):
     """Steamroll errors.
@@ -83,9 +84,11 @@ def fuckit(victim):
                 break
         inspect.stack()[1][0].f_locals[victim] = module
         return module
-    if inspect.isfunction(victim) or inspect.ismethod(victim):
+    elif inspect.isfunction(victim) or inspect.ismethod(victim):
         try:
-            source = inspect.getsource(victim.func_code)
+            sourcelines = inspect.getsource(victim.func_code).splitlines()
+            indent = re.match(r'\s*', sourcelines[0]).group()
+            source = '\n'.join(l.replace(indent, '', 1) for l in sourcelines)
         except IOError:
             # Worst-case scenario we can only catch errors at a granularity of
             # the whole function.
@@ -106,12 +109,20 @@ def fuckit(victim):
             scope = {}
             exec code in scope
             return scope[victim.__name__]
-    if isinstance(victim, types.ModuleType):
+    elif isinstance(victim, types.ModuleType):
         # Allow chaining of fuckit import calls
         for name, obj in victim.__dict__.iteritems():
             if inspect.isfunction(obj) or inspect.ismethod(obj):
                 victim.__dict__[name] = fuckit(obj)
         return victim
+    elif isinstance(victim, (types.ClassType, type)):
+        for name, member in victim.__dict__.iteritems():
+            if isinstance(member, (type, types.ClassType, types.FunctionType,
+                                   types.LambdaType, types.MethodType)):
+                setattr(victim, name, fuckit(member))
+        return victim
+
+    return victim
         
 
 class _Fucker(ast.NodeTransformer):

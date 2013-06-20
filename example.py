@@ -3,12 +3,23 @@ from fuckit import fuckit
 fuckit(fuckit('broke'))
 
 @fuckit
-def ff():
-    piss # Let's create a NameError
-    return 'This works'
+def broken_function():
+    non_existant_variable # Let's create a NameError
+    return 'Function decorator works'
+
+@fuckit
+class BrokenClass(object):
+    def f(self):
+        self.black_hole = 1 / 0
+        return 'Class decorator works'
     
-print ff()
+
+    
+print broken_function()
+print BrokenClass().f()
 broke.f()
 print broke.var
+
+
 
     
