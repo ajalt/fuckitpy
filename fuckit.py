@@ -3,7 +3,7 @@
 Getting import errors? Use the fuckit function as a replacement for import if an
 import fails.
 
-    >>> from fuckit import fuckit
+    >>> import fuckit
     >>> import broke
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
