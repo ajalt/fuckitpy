@@ -32,7 +32,6 @@ Getting errors from your own function? Use fuckit as a decorator.
 
     >>> def f():
     ...     broken_code
-    ...
     >>> f()
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
@@ -42,23 +41,25 @@ Getting errors from your own function? Use fuckit as a decorator.
     ... def f():
     ...     broken_code
     ...     return 'This works'
-    ...
     >>> f()
     'This works'
+    
+Getting errors in a block of code and don't want to write your own try/except
+block? Use fuckit as a context manager.
+
+    >>> with fuckit:
+    ...     print 'This works'
+    ...     raise RuntimeError()
+    This works
 """
 
 import ast
 import sys
 
 class _fuckit(object):
-    """Steamroll errors.
-    
-    The argument can be the string name of a module to import, an existing
-    module, or a function.
-    """
-    # Once we insert this class into sys.modules, all values in globals() will
-    # have the value None, so every function has to do its own import into
-    # locals()
+    # We overwrite the sys.moduoles entry for this funciton later, which will
+    # cause all the values in globals() to be changed to None to allow garbage
+    # colelction. That forces us to do all of our imports into locals().
     class _Fucker(ast.NodeTransformer):
         """Surround each statement with a try/except block to silence errors."""
         def generic_visit(self, node):
@@ -75,6 +76,11 @@ class _fuckit(object):
             return node
     
     def __call__(self, victim):
+        """Steamroll errors.
+    
+        The argument can be the string name of a module to import, an existing
+        module, or a function.
+        """ 
         import inspect
         import imp
         import ast
@@ -87,8 +93,8 @@ class _fuckit(object):
         if isinstance(victim, (str, unicode)):
             sourcefile, pathname, _description = imp.find_module(victim)
             source = sourcefile.read()
-            # Compile the module with more and more lines removed until it imports
-            # successfully.
+            # Compile the module with more and more lines removed until it
+            # imports successfully.
             while True:
                 try:
                     code = compile(source, pathname, 'exec')
@@ -97,8 +103,8 @@ class _fuckit(object):
                     sys.modules[victim] = module
                     exec code in module.__dict__
                 except Exception as exc:
-                    lineno = getattr(exc, 'lineno',
-                                     traceback.extract_tb(sys.exc_info()[2])[-1][1])
+                    extracted_ln = traceback.extract_tb(sys.exc_info()[2])[-1][1]
+                    lineno = getattr(exc, 'lineno', extracted_ln)
                     lines = source.splitlines()
                     del lines[lineno - 1]
                     source = '\n'.join(lines)
@@ -113,8 +119,8 @@ class _fuckit(object):
                 indent = re.match(r'\s*', sourcelines[0]).group()
                 source = '\n'.join(l.replace(indent, '', 1) for l in sourcelines)
             except IOError:
-                # Worst-case scenario we can only catch errors at a granularity of
-                # the whole function.
+                # Worst-case scenario we can only catch errors at a granularity
+                # of the whole function.
                 @functools.wraps(victim)
                 def wrapper(*args, **kw):
                     try:
@@ -129,9 +135,9 @@ class _fuckit(object):
                 del tree.body[0].decorator_list[:]
                 ast.fix_missing_locations(tree)
                 code = compile(tree, victim.func_name, 'exec')
-                scope = {}
-                exec code in scope
-                return scope[victim.__name__]
+                namespace = {}
+                exec code in namespace
+                return namespace[victim.__name__]
         elif isinstance(victim, types.ModuleType):
             # Allow chaining of fuckit import calls
             for name, obj in victim.__dict__.iteritems():
@@ -146,6 +152,16 @@ class _fuckit(object):
             return victim
     
         return victim
+    
+    def __enter__(self):
+        return None
+    
+    def __exit__(self, exc_type, exc_value, traceback):
+        # Returning True prevents the error from propagating. Don't silence
+        # KeyboardInterrupt or SystemExit. We aren't monsters.
+        return issubclass(exc_type, Exception)
+    
+    
     
 sys.modules[__name__] = _fuckit()
     

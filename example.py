@@ -13,7 +13,9 @@ class BrokenClass(object):
         self.black_hole = 1 / 0
         return 'Class decorator works'
     
-
+with fuckit:
+    print 'Context manager works'
+    raise KeyboardInterrupt()
     
 print broken_function()
 print BrokenClass().f()
