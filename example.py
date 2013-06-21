@@ -1,4 +1,4 @@
-from fuckit import fuckit
+import fuckit
 #import broke
 fuckit(fuckit('broke'))
 
