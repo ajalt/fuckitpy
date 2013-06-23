@@ -1,4 +1,4 @@
-"""Steamroll errors.
+__doc__ = """Steamroll errors.
 
 Getting import errors? Use the fuckit function as a replacement for import if an
 import fails.
@@ -55,8 +55,8 @@ block? Use fuckit as a context manager.
 
 import ast
 import sys
-
-class _fuckit(object):
+import types
+class _fuckit(types.ModuleType):
     # We overwrite the sys.moduoles entry for this funciton later, which will
     # cause all the values in globals() to be changed to None to allow garbage
     # colelction. That forces us to do all of our imports into locals().
@@ -163,5 +163,5 @@ class _fuckit(object):
     
     
     
-sys.modules[__name__] = _fuckit()
+sys.modules[__name__] = _fuckit('fuckit', __doc__)
     

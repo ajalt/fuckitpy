@@ -15,7 +15,7 @@ class BrokenClass(object):
     
 with fuckit:
     print 'Context manager works'
-    raise KeyboardInterrupt()
+    raise RuntimeError()
     
 print broken_function()
 print BrokenClass().f()
