@@ -56,10 +56,11 @@ block? Use fuckit as a context manager.
 import ast
 import sys
 import types
+
 class _fuckit(types.ModuleType):
-    # We overwrite the sys.moduoles entry for this funciton later, which will
+    # We overwrite the sys.moduoles entry for this function later, which will
     # cause all the values in globals() to be changed to None to allow garbage
-    # colelction. That forces us to do all of our imports into locals().
+    # collection. That forces us to do all of our imports into locals().
     class _Fucker(ast.NodeTransformer):
         """Surround each statement with a try/except block to silence errors."""
         def generic_visit(self, node):
@@ -159,7 +160,7 @@ class _fuckit(types.ModuleType):
     def __exit__(self, exc_type, exc_value, traceback):
         # Returning True prevents the error from propagating. Don't silence
         # KeyboardInterrupt or SystemExit. We aren't monsters.
-        return issubclass(exc_type, Exception)
+        return exc_type is None or issubclass(exc_type, Exception)
     
     
     
