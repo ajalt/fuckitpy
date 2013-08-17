@@ -1,4 +1,5 @@
 #FuckIt.py
+[![Build Status](https://travis-ci.org/ajalt/fuckitpy.png)](https://travis-ci.org/ajalt/fuckitpy)
 ### The Python Error Steamroller
 FuckIt.py uses state-of-the-art technology to make sure your Python code runs
 whether it has any right to or not. Some code has an error? Fuck it.
