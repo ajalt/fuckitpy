@@ -18,46 +18,58 @@ All functionality is provided through the fuckit module. Add `import fuckit` to 
 Use fuckit to replace an import when a module has errors. 
 Just change `import some_shitty_module` to `fuckit('some_shitty_module')`. Note that you have to surround the module name with quotes and parentheses. 
 
-	import fuckit
-	#import some_shitty_module
-	fuckit('some_shitty_module')
-	some_shitty_module.some_function()
+```python
+import fuckit
+#import some_shitty_module
+fuckit('some_shitty_module')
+some_shitty_module.some_function()
+```
 
 Still getting errors? Chain fuckit calls. This module is like violence: if it doesn't work, you just need more of it.
 
- 	from fuckit import fuckit
-	fuckit(fuckit('some_shitty_module'))
-	# This is definitely going run now.
-	some_shitty_module.some_function()
+```python
+ from fuckit import fuckit
+fuckit(fuckit('some_shitty_module'))
+# This is definitely going run now.
+some_shitty_module.some_function()
+```
 
 ### As a decorator
 Use fuckit as a function decorator when a single function is giving your trouble. Exceptions will be silenced, and in most cases the function will continue to run, skipping the statements that cause errors.
 
-	@fuckit
-	def func():
-		problem_solved  
+```python
+@fuckit
+def func():
+	problem_solved  
+```
 
 You can use fuckit as a class decorator, too.
 
-	@fuckit
-	class C(object):
-		def __init__(self):
-			everything_works_now
+```python
+@fuckit
+class C(object):
+	def __init__(self):
+		everything_works_now
+```
 
 Keep in mind that the decorator form of fuckit can't stop syntax errors. For those, you have to use the import form. 
 
 ### As a context manager
 Use fuckit as a context manager to save yourself from having to type out try/except block to silence exceptions yourself.
 
-	with fuckit:
-	    some_code
+```python
+with fuckit:
+    some_code
+```
 
 This is functionally equivalent to the following:
 
-	try:
-		some_code
-	except Exception:
-		pass
+```python
+try:
+	some_code
+except Exception:
+	pass
+```
 
 The context manager form of fuckit can't allow the code to continue past an error like the decorator and import forms can. If you want the code to continue after an exception, wrap the code block in a function and use the decorator instead.
 
