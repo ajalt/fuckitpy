@@ -52,7 +52,14 @@ class C(object):
 		everything_works_now
 ```
 
-Keep in mind that the decorator form of fuckit can't stop syntax errors. For those, you have to use the import form. 
+Keep in mind that the decorator form of fuckit can't stop syntax errors. For those, you have to use the import form.
+
+Keep in mind that you can apply the decorator to other peoples' functions:
+
+```python
+
+results = fuckit(itll_all_be_okay)()
+```
 
 ### As a context manager
 Use fuckit as a context manager to save yourself from having to type out try/except block to silence exceptions yourself.
