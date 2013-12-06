@@ -1,7 +1,7 @@
 #FuckIt.py
 [![Build Status](https://travis-ci.org/ajalt/fuckitpy.png)](https://travis-ci.org/ajalt/fuckitpy)
 [![PyPI version](https://badge.fury.io/py/fuckit.png)](http://badge.fury.io/py/fuckit)
-[![Coverage Status](https://raw.github.com/gittip/shields.io/master/static/coveralls/coveralls_100.png)](https://coveralls.io/r/ajalt/fuckitpy?branch=master)
+[![Coverage Status](https://coveralls.io/repos/ajalt/fuckitpy/badge.png)](https://coveralls.io/r/ajalt/fuckitpy)
 [![Downloads](https://pypip.in/d/fuckit/badge.png)](https://pypi.python.org/pypi/fuckit)
 
 ### The Python Error Steamroller
