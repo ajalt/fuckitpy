@@ -58,7 +58,7 @@ import sys
 import types
 
 class _fuckit(types.ModuleType):
-    # We overwrite the sys.moduoles entry for this function later, which will
+    # We overwrite the sys.modules entry for this function later, which will
     # cause all the values in globals() to be changed to None to allow garbage
     # collection. That forces us to do all of our imports into locals().
     class _Fucker(ast.NodeTransformer):
