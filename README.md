@@ -16,7 +16,7 @@ All functionality is provided through the fuckit module. Add `import fuckit` to 
  
 ### As a replacement for import
 Use fuckit to replace an import when a module has errors. 
-Just change `import some_shitty_module` to `fuckit('some_shitty_module')`. Note that you have to surround the module name with quotes and parenthesis. 
+Just change `import some_shitty_module` to `fuckit('some_shitty_module')`. Note that you have to surround the module name with quotes and parentheses. 
 
 	import fuckit
 	#import some_shitty_module
