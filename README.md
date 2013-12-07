@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/ajalt/fuckitpy.png)](https://travis-ci.org/ajalt/fuckitpy)
 [![PyPI version](https://badge.fury.io/py/fuckit.png)](http://badge.fury.io/py/fuckit)
 [![Coverage Status](https://coveralls.io/repos/ajalt/fuckitpy/badge.png)](https://coveralls.io/r/ajalt/fuckitpy?branch=master)
-[![Downloads](https://pypip.in/d/fuckitpy/badge.png)](https://pypi.python.org/pypi/fuckit)
+[![Downloads](https://pypip.in/d/fuckit/badge.png)](https://pypi.python.org/pypi/fuckit)
 
 ### The Python Error Steamroller
 FuckIt.py uses state-of-the-art technology to make sure your Python code runs
