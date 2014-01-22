@@ -28,7 +28,7 @@ some_shitty_module.some_function()
 Still getting errors? Chain fuckit calls. This module is like violence: if it doesn't work, you just need more of it.
 
 ```python
- from fuckit import fuckit
+import fuckit
 fuckit(fuckit('some_shitty_module'))
 # This is definitely going run now.
 some_shitty_module.some_function()
