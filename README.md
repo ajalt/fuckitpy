@@ -30,7 +30,7 @@ Still getting errors? Chain fuckit calls. This module is like violence: if it do
 ```python
 import fuckit
 fuckit(fuckit('some_shitty_module'))
-# This is definitely going run now.
+# This is definitely going to run now.
 some_shitty_module.some_function()
 ```
 
@@ -40,7 +40,7 @@ Use fuckit as a function decorator when a single function is giving your trouble
 ```python
 @fuckit
 def func():
-	problem_solved  
+    problem_solved  
 ```
 
 You can use fuckit as a class decorator, too.
@@ -48,8 +48,8 @@ You can use fuckit as a class decorator, too.
 ```python
 @fuckit
 class C(object):
-	def __init__(self):
-		everything_works_now
+    def __init__(self):
+        everything_works_now
 ```
 
 Keep in mind that the decorator form of fuckit can't stop syntax errors. For those, you have to use the import form. 
@@ -66,9 +66,9 @@ This is functionally equivalent to the following:
 
 ```python
 try:
-	some_code
+    some_code
 except Exception:
-	pass
+    pass
 ```
 
 The context manager form of fuckit can't allow the code to continue past an error like the decorator and import forms can. If you want the code to continue after an exception, wrap the code block in a function and use the decorator instead.
