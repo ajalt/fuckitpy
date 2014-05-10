@@ -61,14 +61,17 @@ class _fuckit(types.ModuleType):
     # We overwrite the sys.moduoles entry for this function later, which will
     # cause all the values in globals() to be changed to None to allow garbage
     # collection. That forces us to do all of our imports into locals().
+    PY3 = sys.version_info[0] == 3
+
     class _Fucker(ast.NodeTransformer):
         """Surround each statement with a try/except block to silence errors."""
+        PY3 = None
+
         def generic_visit(self, node):
             import ast
             ast.NodeTransformer.generic_visit(self, node)
-            from six import PY2
             if isinstance(node, ast.stmt) and not isinstance(node, ast.FunctionDef):
-                if PY2:
+                if not self.PY3:
                     new_node = ast.TryExcept(body=[node],
                                              handlers=[ast.ExceptHandler(type=None,
                                              name=None,
@@ -83,7 +86,30 @@ class _fuckit(types.ModuleType):
                                        finalbody=[ast.Pass()])
                 return ast.copy_location(new_node, node)
             return node
-    
+    _Fucker.PY3 = PY3
+
+    class _six(object):
+        """For compatibility with python3 and without using six library"""
+        def __init__(self, is_py3):
+            if is_py3:
+                self.string_types = str
+                self.get_function_code = lambda f: f.__code__
+                self._iteritems = 'items'
+                self.exec_ = __builtins__['exec']
+            else:
+                self.string_types = basestring
+                self.get_function_code = lambda f: f.func_code
+                self._iteritems = 'iteritems'
+
+        def iteritems(self, d):
+            """Return an iterator over the (key, value) pairs of a dictionary."""
+            return iter(getattr(d, self._iteritems)())
+
+        def exec_(self, _code_, _globs_):
+            """Execute code in a namespace."""
+            _locs_ = _globs_
+            exec('exec _code_ in _globs_, _locs_')
+
     def __call__(self, victim):
         """Steamroll errors.
     
@@ -98,7 +124,8 @@ class _fuckit(types.ModuleType):
         import traceback
         import functools
         import re
-        import six
+
+        six = self._six(self.PY3)
 
         if isinstance(victim, six.string_types):
             sourcefile, pathname, _description = imp.find_module(victim)
