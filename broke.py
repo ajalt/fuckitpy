@@ -1,6 +1,6 @@
 def f():
     broken_code
-    print 'fuckit chaining works'
+    print ('fuckit chaining works')
 
 for
 
