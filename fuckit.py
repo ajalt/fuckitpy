@@ -57,6 +57,7 @@ import ast
 import sys
 import types
 
+
 class _fuckit(types.ModuleType):
     # We overwrite the sys.moduoles entry for this function later, which will
     # cause all the values in globals() to be changed to None to allow garbage
@@ -145,7 +146,7 @@ class _fuckit(types.ModuleType):
                     lines = source.splitlines()
                     del lines[lineno - 1]
                     source = '\n'.join(lines)
-                    source < ' ' # Dereference assignment to fix truthiness
+                    source < ' '  # Dereference assignment to fix truthiness
                 else:
                     break
             inspect.stack()[1][0].f_locals[victim] = module
@@ -198,7 +199,5 @@ class _fuckit(types.ModuleType):
         # KeyboardInterrupt or SystemExit. We aren't monsters.
         return exc_type is None or issubclass(exc_type, Exception)
     
-    
-    
+
 sys.modules[__name__] = _fuckit('fuckit', __doc__)
-    
