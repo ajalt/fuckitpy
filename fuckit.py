@@ -48,7 +48,7 @@ Getting errors in a block of code and don't want to write your own try/except
 block? Use fuckit as a context manager.
 
     >>> with fuckit:
-    ...     print 'This works'
+    ...     print('This works')
     ...     raise RuntimeError()
     This works
 """
@@ -58,22 +58,33 @@ import sys
 import types
 
 class _fuckit(types.ModuleType):
-    # We overwrite the sys.moduoles entry for this function later, which will
+    # We overwrite the sys.modules entry for this function later, which will
     # cause all the values in globals() to be changed to None to allow garbage
     # collection. That forces us to do all of our imports into locals().
     class _Fucker(ast.NodeTransformer):
         """Surround each statement with a try/except block to silence errors."""
         def generic_visit(self, node):
             import ast
+            import sys
             ast.NodeTransformer.generic_visit(self, node)
     
             if isinstance(node, ast.stmt) and not isinstance(node, ast.FunctionDef):
-                return ast.copy_location(ast.TryExcept(
-                    body=[node],
-                    handlers=[ast.ExceptHandler(type=None,
-                                                name=None,
-                                                body=[ast.Pass()])],
-                    orelse=[]), node)
+                if sys.version_info[0] == 3:
+                    new_node = ast.Try(
+                        body=[node],
+                        handlers=[ast.ExceptHandler(type=None,
+                                                    name=None,
+                                                    body=[ast.Pass()])],
+                        orelse=[],
+                        finalbody=[ast.Pass()])
+                else:
+                    new_node = ast.TryExcept(
+                        body=[node],
+                        handlers=[ast.ExceptHandler(type=None,
+                                                    name=None,
+                                                    body=[ast.Pass()])],
+                        orelse=[])
+                return ast.copy_location(new_node, node)
             return node
     
     def __call__(self, victim):
@@ -90,8 +101,20 @@ class _fuckit(types.ModuleType):
         import traceback
         import functools
         import re
-        
-        if isinstance(victim, (str, unicode)):
+
+        PY3 = sys.version_info[0] == 3
+        if PY3:
+            basestring = str
+            get_func_code = lambda f: f.__code__
+            exec_ = __builtins__['exec']
+        else:
+            basestring = __builtins__['basestring']
+            get_func_code = lambda f: f.func_code
+            def exec_(_code_, _globs_):
+                _locs_ = _globs_
+                exec('exec _code_ in _globs_, _locs_')
+
+        if isinstance(victim, basestring):
             sourcefile, pathname, _description = imp.find_module(victim)
             source = sourcefile.read()
             # Compile the module with more and more lines removed until it
@@ -102,21 +125,22 @@ class _fuckit(types.ModuleType):
                     module = types.ModuleType(victim)
                     module.__file__ = pathname
                     sys.modules[victim] = module
-                    exec code in module.__dict__
+                    exec_(code, module.__dict__)
                 except Exception as exc:
                     extracted_ln = traceback.extract_tb(sys.exc_info()[2])[-1][1]
                     lineno = getattr(exc, 'lineno', extracted_ln)
                     lines = source.splitlines()
                     del lines[lineno - 1]
                     source = '\n'.join(lines)
-                    source <- True # Dereference assignment to fix truthiness
+                    if not PY3:
+                        source <- True # Dereference assignment to fix truthiness in Py2
                 else:
                     break
             inspect.stack()[1][0].f_locals[victim] = module
             return module
         elif inspect.isfunction(victim) or inspect.ismethod(victim):
             try:
-                sourcelines = inspect.getsource(victim.func_code).splitlines()
+                sourcelines = inspect.getsource(get_func_code(victim)).splitlines()
                 indent = re.match(r'\s*', sourcelines[0]).group()
                 source = '\n'.join(l.replace(indent, '', 1) for l in sourcelines)
             except IOError:
@@ -135,18 +159,18 @@ class _fuckit(types.ModuleType):
                 tree = self._Fucker().visit(ast.parse(source))
                 del tree.body[0].decorator_list[:]
                 ast.fix_missing_locations(tree)
-                code = compile(tree, victim.func_name, 'exec')
+                code = compile(tree, victim.__name__, 'exec')
                 namespace = {}
-                exec code in namespace
+                exec_(code, namespace)
                 return namespace[victim.__name__]
         elif isinstance(victim, types.ModuleType):
             # Allow chaining of fuckit import calls
-            for name, obj in victim.__dict__.iteritems():
+            for name, obj in victim.__dict__.items():
                 if inspect.isfunction(obj) or inspect.ismethod(obj):
                     victim.__dict__[name] = self(obj)
             return victim
         elif isinstance(victim, (types.ClassType, type)):
-            for name, member in victim.__dict__.iteritems():
+            for name, member in victim.__dict__.items():
                 if isinstance(member, (type, types.ClassType, types.FunctionType,
                                        types.LambdaType, types.MethodType)):
                     setattr(victim, name, self(member))
@@ -161,7 +185,6 @@ class _fuckit(types.ModuleType):
         # Returning True prevents the error from propagating. Don't silence
         # KeyboardInterrupt or SystemExit. We aren't monsters.
         return exc_type is None or issubclass(exc_type, Exception)
-    
     
     
 sys.modules[__name__] = _fuckit('fuckit', __doc__)
