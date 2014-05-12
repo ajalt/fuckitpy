@@ -14,14 +14,13 @@ class BrokenClass(object):
         return 'Class decorator works'
     
 with fuckit:
-    print 'Context manager works'
+    print('Context manager works')
     raise RuntimeError()
     
-print broken_function()
-print BrokenClass().f()
+print(broken_function())
+print(BrokenClass().f())
 broke.f()
-print broke.var
+print(broke.var)
 
 
 
-    

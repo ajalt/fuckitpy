@@ -23,7 +23,8 @@ setup(
     platforms='any',
     test_suite='nose.collector',
     classifiers = [
-        'Programming Language :: Python :: 2 :: Only',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 3',
         'Development Status :: 4 - Beta',
         'Natural Language :: English',
         'Environment :: Console',
