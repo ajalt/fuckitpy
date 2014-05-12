@@ -1,5 +1,5 @@
 #FuckIt.py
-[![Build Status](http://img.shields.io/travis/ajalt/fuckitpy.svg)](https://travis-ci.org/ajalt/fuckitpy)
+[![Build Status](http://img.shields.io/travis/ajalt/fuckitpy/master.svg)](https://travis-ci.org/ajalt/fuckitpy)
 [![PyPI version](http://img.shields.io/badge/pypi-1.0.1-brightgreen.svg)](http://badge.fury.io/py/fuckit)
 [![Coverage Status](http://img.shields.io/badge/coverage-100%25-brightgreen.svg)](https://coveralls.io/r/ajalt/fuckitpy?branch=master)
 [![Downloads](http://img.shields.io/pypi/dm/requests.svg)](https://pypi.python.org/pypi/fuckit)
@@ -79,7 +79,7 @@ The context manager form of fuckit can't allow the code to continue past an erro
                 DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
                        Version 2, December 2004
 
-	Copyright (C) 2013
+	Copyright (C) 2014
 	
 	Everyone is permitted to copy and distribute verbatim or modified
 	copies of this license document, and changing it is allowed as long
