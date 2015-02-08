@@ -115,27 +115,39 @@ class _fuckit(types.ModuleType):
                 exec('exec _code_ in _globs_, _locs_')
 
         if isinstance(victim, basestring):
-            sourcefile, pathname, _description = imp.find_module(victim)
-            source = sourcefile.read()
-            # Compile the module with more and more lines removed until it
-            # imports successfully.
-            while True:
+            sourcefile, pathname, (_, _, module_type) = imp.find_module(victim)
+            if module_type == imp.PY_SOURCE:
+                source = sourcefile.read()
+                # If we have the source, we can silence SyntaxErrors by
+                # compiling the module with more and more lines removed until
+                # it imports successfully.
+                while True:
+                    try:
+                        code = compile(source, pathname, 'exec')
+                        module = types.ModuleType(victim)
+                        module.__file__ = pathname
+                        sys.modules[victim] = module
+                        exec_(code, module.__dict__)
+                    except Exception as exc:
+                        extracted_ln = traceback.extract_tb(sys.exc_info()[2])[-1][1]
+                        lineno = getattr(exc, 'lineno', extracted_ln)
+                        lines = source.splitlines()
+                        del lines[lineno - 1]
+                        source = '\n'.join(lines)
+                        if not PY3:
+                            source <- True # Dereference assignment to fix truthiness in Py2
+                    else:
+                        break
+            else:
+                # If we don't have access to the source code, there's not much
+                # we can do to stop import-time errors.
                 try:
-                    code = compile(source, pathname, 'exec')
-                    module = types.ModuleType(victim)
-                    module.__file__ = pathname
-                    sys.modules[victim] = module
-                    exec_(code, module.__dict__)
+                    module = __import__(victim)
                 except Exception as exc:
-                    extracted_ln = traceback.extract_tb(sys.exc_info()[2])[-1][1]
-                    lineno = getattr(exc, 'lineno', extracted_ln)
-                    lines = source.splitlines()
-                    del lines[lineno - 1]
-                    source = '\n'.join(lines)
-                    if not PY3:
-                        source <- True # Dereference assignment to fix truthiness in Py2
-                else:
-                    break
+                    # If the module doesn't import at this point, it's
+                    # obviously not worth using anyway, so just return an
+                    # empty module.
+                    module = types.ModuleType(victim)
             inspect.stack()[1][0].f_locals[victim] = module
             return module
         elif inspect.isfunction(victim) or inspect.ismethod(victim):
