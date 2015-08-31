@@ -191,7 +191,7 @@ class _fuckit(types.ModuleType):
         return victim
     
     def __enter__(self):
-        return None
+        pass
     
     def __exit__(self, exc_type, exc_value, traceback):
         # Returning True prevents the error from propagating. Don't silence
