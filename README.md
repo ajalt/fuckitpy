@@ -35,7 +35,7 @@ some_shitty_module.some_function()
 ```
 
 ### As a decorator
-Use fuckit as a function decorator when a single function is giving your trouble. Exceptions will be silenced, and in most cases the function will continue to run, skipping the statements that cause errors.
+Use fuckit as a function decorator when a single function is giving you trouble. Exceptions will be silenced, and in most cases the function will continue to run, skipping the statements that cause errors.
 
 ```python
 @fuckit
