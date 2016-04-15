@@ -107,6 +107,7 @@ class _fuckit(types.ModuleType):
             basestring = str
             get_func_code = lambda f: f.__code__
             exec_ = __builtins__['exec']
+            types.ClassType = type
         else:
             basestring = __builtins__['basestring']
             get_func_code = lambda f: f.func_code
