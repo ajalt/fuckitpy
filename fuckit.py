@@ -1,3 +1,5 @@
+from _hashlib import new
+
 __doc__ = """Steamroll errors.
 
 Getting import errors? Use the fuckit function as a replacement for import if an
@@ -144,7 +146,7 @@ class _fuckit(types.ModuleType):
                 # we can do to stop import-time errors.
                 try:
                     module = __import__(victim)
-                except Exception as exc:
+                except Exception:
                     # If the module doesn't import at this point, it's
                     # obviously not worth using anyway, so just return an
                     # empty module.
@@ -173,7 +175,7 @@ class _fuckit(types.ModuleType):
                 del tree.body[0].decorator_list[:]
                 ast.fix_missing_locations(tree)
                 code = compile(tree, victim.__name__, 'exec')
-                namespace = {}
+                namespace = dict(victim.__globals__)
                 exec_(code, namespace)
                 return namespace[victim.__name__]
         elif isinstance(victim, types.ModuleType):
