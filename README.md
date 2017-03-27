@@ -1,4 +1,5 @@
-#FuckIt.py
+# FuckIt.py
+
 [![Build Status](https://img.shields.io/travis/ajalt/fuckitpy/master.svg)](https://travis-ci.org/ajalt/fuckitpy)
 [![PyPI version](https://img.shields.io/badge/pypi-4.8.0-brightgreen.svg)](https://pypi.python.org/pypi/fuckit/4.8.0)
 [![Coverage Status](https://img.shields.io/badge/coverage-110%25-brightgreen.svg)](https://coveralls.io/r/ajalt/fuckitpy?branch=master)
@@ -75,7 +76,7 @@ The context manager form of fuckit can't allow the code to continue past an erro
 
 
 
-##License
+## License
                 DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
                        Version 2, December 2004
 
