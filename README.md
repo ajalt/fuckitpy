@@ -1,7 +1,7 @@
 # FuckIt.py
 
 [![Build Status](https://img.shields.io/travis/ajalt/fuckitpy/master.svg)](https://travis-ci.org/ajalt/fuckitpy)
-[![PyPI version](https://img.shields.io/badge/pypi-4.8.1-brightgreen.svg)](https://pypi.python.org/pypi/fuckit/4.8.1)
+[![PyPI version](.web/pypibadge.svg)](https://pypi.python.org/pypi/fuckit/4.8.1)
 [![Coverage Status](https://img.shields.io/badge/coverage-110%25-brightgreen.svg)](https://coveralls.io/r/ajalt/fuckitpy?branch=master)
 [![Downloads](https://img.shields.io/badge/downloads-1.1M%2Fmonth-brightgreen.svg)](https://pypi.python.org/pypi/fuckit)
 
@@ -74,6 +74,9 @@ except Exception:
 
 The context manager form of fuckit can't allow the code to continue past an error like the decorator and import forms can. If you want the code to continue after an exception, wrap the code block in a function and use the decorator instead.
 
+## Versioning
+
+The web devs tell me that fuckit's versioning scheme is confusing, and that I should use "Semitic Versioning" instead. So starting with fuckit version `ה.ג.א`, package versions will use Hebrew Numerals.
 
 
 ## License

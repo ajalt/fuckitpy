@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="72"
+   height="20"
+   version="1.1"
+   id="svg3835"
+   sodipodi:docname="68747470733a2f2f696d672e736869656c64732e696f2f62616467652f707970692d342e382e302d627269676874677265656e2e737667.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <metadata
+     id="metadata3841">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3839" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     id="namedview3837"
+     showgrid="false"
+     inkscape:zoom="16.701389"
+     inkscape:cx="52.178376"
+     inkscape:cy="5.0653027"
+     inkscape:window-x="1272"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g3833"
+     inkscape:snap-text-baseline="true" />
+  <linearGradient
+     id="b"
+     x2="0"
+     y2="100%">
+    <stop
+       offset="0"
+       stop-color="#bbb"
+       stop-opacity=".1"
+       id="stop3809" />
+    <stop
+       offset="1"
+       stop-opacity=".1"
+       id="stop3811" />
+  </linearGradient>
+  <clipPath
+     id="a">
+    <rect
+       width="72"
+       height="20"
+       rx="3"
+       fill="#fff"
+       id="rect3814" />
+  </clipPath>
+  <g
+     clip-path="url(#a)"
+     id="g3823">
+    <path
+       fill="#555"
+       d="M0 0h33v20H0z"
+       id="path3817" />
+    <path
+       fill="#4c1"
+       d="M33 0h39v20H33z"
+       id="path3819" />
+    <path
+       fill="url(#b)"
+       d="M0 0h72v20H0z"
+       id="path3821" />
+  </g>
+  <g
+     font-size="110"
+     id="g3833"
+     text-anchor="middle"
+     font-family="DejaVu Sans,Verdana,Geneva,sans-serif"
+     fill="#fff">
+    <text
+       x="175"
+       y="150"
+       transform="scale(.1)"
+       textLength="230"
+       id="text3825"
+       fill-opacity=".3"
+       fill="#010101">pypi</text>
+    <text
+       x="175"
+       y="140"
+       transform="scale(.1)"
+       textLength="230"
+       id="text3827">pypi</text>
+    <g
+       aria-label="ה.ג.א"
+       transform="matrix(0.1,0,0,0.1,-2,0)"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:133.33332825px;font-family:'DejaVu Sans', Verdana, Geneva, sans-serif;-inkscape-font-specification:'DejaVu Sans, Verdana, Geneva, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:-50px;writing-mode:lr-tb;text-anchor:middle;fill:#010101;fill-opacity:0.3"
+       id="text3829">
+      <path
+         d="m 647.16143,82.161461 q 11.78386,-2.018229 22.91667,-2.018229 21.61458,0 29.88281,8.007812 8.26823,8.007812 8.26823,24.544266 V 150 h -12.4349 v -33.98437 q 0,-10.35157 -2.40885,-15.16927 -2.40885,-4.882816 -8.33333,-7.356775 -5.85938,-2.539062 -17.1224,-2.539062 -8.85416,0 -19.72656,1.822917 z m 13.21615,28.906249 V 150 h -12.4349 v -38.93229 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:133.33332825px;font-family:'DejaVu Sans', Verdana, Geneva, sans-serif;-inkscape-font-specification:'DejaVu Sans, Verdana, Geneva, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:-50px;writing-mode:lr-tb;text-anchor:middle;fill:#010101;fill-opacity:0.3"
+         id="path4705" />
+      <path
+         d="m 610.98959,150 h -15.5599 v -18.55469 h 15.5599 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:133.33332825px;font-family:'DejaVu Sans', Verdana, Geneva, sans-serif;-inkscape-font-specification:'DejaVu Sans, Verdana, Geneva, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:-50px;writing-mode:lr-tb;text-anchor:middle;fill:#010101;fill-opacity:0.3"
+         id="path4707" />
+      <path
+         d="M 557.89063,105.33854 V 126.5625 L 564.27084,150 h -12.17448 l -4.75261,-16.92708 q -8.00781,0 -13.34635,9.70052 L 530.15626,150 h -12.69532 l 5.46875,-10.67708 q 4.88282,-9.50521 11.32813,-12.4349 6.44531,-2.99479 11.19791,-2.99479 v -18.16406 q 0,-5.59896 -0.84635,-8.463543 -0.78125,-2.929687 -3.58073,-4.6875 -2.79948,-1.757812 -7.42187,-1.757812 -3.97136,0 -7.09636,0.651041 l -0.91146,-9.895833 q 4.36198,-1.432291 10.67709,-1.432291 8.85416,0 13.54166,3.320312 4.6875,3.320313 6.38021,8.203125 1.69271,4.817708 1.69271,13.671871 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:133.33332825px;font-family:'DejaVu Sans', Verdana, Geneva, sans-serif;-inkscape-font-specification:'DejaVu Sans, Verdana, Geneva, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:-50px;writing-mode:lr-tb;text-anchor:middle;fill:#010101;fill-opacity:0.3"
+         id="path4709" />
+      <path
+         d="m 489.42709,150 h -15.5599 v -18.55469 h 15.5599 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:133.33332825px;font-family:'DejaVu Sans', Verdana, Geneva, sans-serif;-inkscape-font-specification:'DejaVu Sans, Verdana, Geneva, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:-50px;writing-mode:lr-tb;text-anchor:middle;fill:#010101;fill-opacity:0.3"
+         id="path4711" />
+      <path
+         d="m 443.88022,150 h -15.36459 l -26.36718,-37.30469 q -6.1198,3.32032 -7.22657,13.41146 L 392.1224,150 h -12.89062 l 2.79948,-23.89323 q 1.95312,-16.66666 13.54167,-22.52604 L 379.4922,80.924482 h 15.29948 l 22.13541,30.924478 q 4.03646,-2.66927 5.59896,-5.98958 1.6276,-3.38542 2.53906,-11.067711 l 1.62761,-13.867187 h 12.89062 l -1.5625,14.257812 q -1.04167,9.179686 -4.16667,15.104166 -3.05989,5.85937 -10.67708,10.48177 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:133.33332825px;font-family:'DejaVu Sans', Verdana, Geneva, sans-serif;-inkscape-font-specification:'DejaVu Sans, Verdana, Geneva, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:-50px;writing-mode:lr-tb;text-anchor:middle;fill:#010101;fill-opacity:0.3"
+         id="path4713" />
+    </g>
+    <g
+       aria-label="ה.ג.א"
+       transform="matrix(0.1,0,0,0.1,-2.0374326,-0.75540147)"
+       style="letter-spacing:-50px;fill:#ffffff;fill-opacity:1"
+       id="text3829-7">
+      <path
+         d="m 647.16143,82.161461 q 11.78386,-2.018229 22.91667,-2.018229 21.61458,0 29.88281,8.007812 8.26823,8.007812 8.26823,24.544266 V 150 h -12.4349 v -33.98437 q 0,-10.35157 -2.40885,-15.16927 -2.40885,-4.882816 -8.33333,-7.356775 -5.85938,-2.539062 -17.1224,-2.539062 -8.85416,0 -19.72656,1.822917 z m 13.21615,28.906249 V 150 h -12.4349 v -38.93229 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:133.33332825px;font-family:'DejaVu Sans', Verdana, Geneva, sans-serif;-inkscape-font-specification:'DejaVu Sans, Verdana, Geneva, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+         id="path4694" />
+      <path
+         d="m 610.98959,150 h -15.5599 v -18.55469 h 15.5599 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:133.33332825px;font-family:'DejaVu Sans', Verdana, Geneva, sans-serif;-inkscape-font-specification:'DejaVu Sans, Verdana, Geneva, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+         id="path4696" />
+      <path
+         d="M 557.89063,105.33854 V 126.5625 L 564.27084,150 h -12.17448 l -4.75261,-16.92708 q -8.00781,0 -13.34635,9.70052 L 530.15626,150 h -12.69532 l 5.46875,-10.67708 q 4.88282,-9.50521 11.32813,-12.4349 6.44531,-2.99479 11.19791,-2.99479 v -18.16406 q 0,-5.59896 -0.84635,-8.463543 -0.78125,-2.929687 -3.58073,-4.6875 -2.79948,-1.757812 -7.42187,-1.757812 -3.97136,0 -7.09636,0.651041 l -0.91146,-9.895833 q 4.36198,-1.432291 10.67709,-1.432291 8.85416,0 13.54166,3.320312 4.6875,3.320313 6.38021,8.203125 1.69271,4.817708 1.69271,13.671871 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:133.33332825px;font-family:'DejaVu Sans', Verdana, Geneva, sans-serif;-inkscape-font-specification:'DejaVu Sans, Verdana, Geneva, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+         id="path4698" />
+      <path
+         d="m 489.42709,150 h -15.5599 v -18.55469 h 15.5599 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:133.33332825px;font-family:'DejaVu Sans', Verdana, Geneva, sans-serif;-inkscape-font-specification:'DejaVu Sans, Verdana, Geneva, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+         id="path4700" />
+      <path
+         d="m 443.88022,150 h -15.36459 l -26.36718,-37.30469 q -6.1198,3.32032 -7.22657,13.41146 L 392.1224,150 h -12.89062 l 2.79948,-23.89323 q 1.95312,-16.66666 13.54167,-22.52604 L 379.4922,80.924482 h 15.29948 l 22.13541,30.924478 q 4.03646,-2.66927 5.59896,-5.98958 1.6276,-3.38542 2.53906,-11.067711 l 1.62761,-13.867187 h 12.89062 l -1.5625,14.257812 q -1.04167,9.179686 -4.16667,15.104166 -3.05989,5.85937 -10.67708,10.48177 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:133.33332825px;font-family:'DejaVu Sans', Verdana, Geneva, sans-serif;-inkscape-font-specification:'DejaVu Sans, Verdana, Geneva, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+         id="path4702" />
+    </g>
+  </g>
+</svg>
