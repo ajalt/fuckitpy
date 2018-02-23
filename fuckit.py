@@ -1,5 +1,3 @@
-from _hashlib import new
-
 __doc__ = """Steamroll errors.
 
 Getting import errors? Use the fuckit function as a replacement for import if an
@@ -59,17 +57,19 @@ import ast
 import sys
 import types
 
+
 class _fuckit(types.ModuleType):
     # We overwrite the sys.modules entry for this function later, which will
     # cause all the values in globals() to be changed to None to allow garbage
     # collection. That forces us to do all of our imports into locals().
     class _Fucker(ast.NodeTransformer):
         """Surround each statement with a try/except block to silence errors."""
+
         def generic_visit(self, node):
             import ast
             import sys
             ast.NodeTransformer.generic_visit(self, node)
-    
+
             if isinstance(node, ast.stmt) and not isinstance(node, ast.FunctionDef):
                 if sys.version_info[0] == 3:
                     new_node = ast.Try(
@@ -88,13 +88,13 @@ class _fuckit(types.ModuleType):
                         orelse=[])
                 return ast.copy_location(new_node, node)
             return node
-    
+
     def __call__(self, victim):
         """Steamroll errors.
-    
+
         The argument can be the string name of a module to import, an existing
         module, or a function.
-        """ 
+        """
         import inspect
         import imp
         import ast
@@ -113,6 +113,7 @@ class _fuckit(types.ModuleType):
         else:
             basestring = __builtins__['basestring']
             get_func_code = lambda f: f.func_code
+
             def exec_(_code_, _globs_):
                 _locs_ = _globs_
                 exec('exec _code_ in _globs_, _locs_')
@@ -135,7 +136,7 @@ class _fuckit(types.ModuleType):
                         extracted_ln = traceback.extract_tb(sys.exc_info()[2])[-1][1]
                         lineno = getattr(exc, 'lineno', extracted_ln)
                         lines = source.splitlines()
-                        del lines[lineno - 1]
+                        lines[lineno - 1] = ''
                         source = '\n'.join(lines)
                         if not PY3:
                             source <- True # Dereference assignment to fix truthiness in Py2
@@ -167,6 +168,7 @@ class _fuckit(types.ModuleType):
                         victim(*args, **kw)
                     except Exception:
                         pass
+
                 return wrapper
             else:
                 # If we have access to the source, we can silence errors on a
@@ -190,17 +192,16 @@ class _fuckit(types.ModuleType):
                                        types.LambdaType, types.MethodType)):
                     setattr(victim, name, self(member))
             return victim
-    
+
         return victim
-    
+
     def __enter__(self):
         return None
-    
+
     def __exit__(self, exc_type, exc_value, traceback):
         # Returning True prevents the error from propagating. Don't silence
         # KeyboardInterrupt or SystemExit. We aren't monsters.
         return exc_type is None or issubclass(exc_type, Exception)
-    
-    
+
+
 sys.modules[__name__] = _fuckit('fuckit', __doc__)
-    
