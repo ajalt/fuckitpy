@@ -1,4 +1,4 @@
-# FuckIt.py
+# FuckItPy
 
 [![Build Status](https://img.shields.io/travis/ajalt/fuckitpy/master.svg)](https://travis-ci.org/ajalt/fuckitpy)
 [![PyPI version](.web/pypibadge.svg)](https://pypi.python.org/pypi/fuckit/4.8.1)
