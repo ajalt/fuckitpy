@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def f():
     broken_code
     print('fuckit chaining works')
