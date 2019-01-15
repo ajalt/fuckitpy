@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def f():
     broken_code
     print('fuckit chaining works')
@@ -8,6 +9,6 @@ let's just assume this is a big module of shitty code.
 
 x = y
 y = x
-1 / 0 # Oh shhhiiiiiii
+1 / 0 # Oh shhhiiiiiiit
 
 var = "Are you proud of what you've done?"

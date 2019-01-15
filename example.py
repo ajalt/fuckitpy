@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import fuckit
 #import broke
 fuckit(fuckit('broke'))
