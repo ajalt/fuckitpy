@@ -56,7 +56,9 @@ block? Use fuckit as a context manager.
 import ast
 import sys
 import types
+import typing
 
+Fuckit = typing.Any
 
 class _fuckit(types.ModuleType):
     # We overwrite the sys.modules entry for this function later, which will
@@ -204,4 +206,4 @@ class _fuckit(types.ModuleType):
         return exc_type is None or issubclass(exc_type, Exception)
 
 
-sys.modules[__name__] = _fuckit('fuckit', __doc__)
+sys.modules[__name__] = _fuckit('fuckit', 'Fuckit', __doc__)

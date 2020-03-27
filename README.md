@@ -74,6 +74,19 @@ except Exception:
 
 The context manager form of fuckit can't allow the code to continue past an error like the decorator and import forms can. If you want the code to continue after an exception, wrap the code block in a function and use the decorator instead.
 
+### As a type
+Use Fuckit for any type checking you don't want to deal with!
+
+```python
+x: Fuckit = ...
+```
+
+This is equivilant to:
+
+```python
+x: Any = ...
+```
+
 ## Versioning
 
 The web devs tell me that fuckit's versioning scheme is confusing, and that I should use "Semitic Versioning" instead. So starting with fuckit version `ה.ג.א`, package versions will use Hebrew Numerals.
