@@ -23,7 +23,7 @@ Just change `import some_shitty_module` to `fuckit('some_shitty_module')`. Note 
 import fuckit
 #import some_shitty_module
 fuckit('some_shitty_module')
-some_shitty_module.some_function()
+some_shitty_module.some_shitty_function()
 ```
 
 Still getting errors? Chain fuckit calls. This module is like violence: if it doesn't work, you just need more of it.
@@ -32,7 +32,7 @@ Still getting errors? Chain fuckit calls. This module is like violence: if it do
 import fuckit
 fuckit(fuckit('some_shitty_module'))
 # This is definitely going to run now.
-some_shitty_module.some_function()
+some_shitty_module.some_shitty_function()
 ```
 
 ### As a decorator
