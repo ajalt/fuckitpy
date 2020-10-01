@@ -83,7 +83,7 @@ The web devs tell me that fuckit's versioning scheme is confusing, and that I sh
 
 Copyright (C) 2014-2018 AJ Alt
 
-This work is free. You can redistribute it and/or modify it under the
+This work is free. You can redistribute it and modify it under the
 terms of the Do What The Fuck You Want To Public License, Version 2,
 reproduced below.
 
