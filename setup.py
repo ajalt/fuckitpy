@@ -22,6 +22,7 @@ setup(
     tests_require=['nose'],
     description='The Python Error Steamroller',
     long_description=long_description,
+    long_description_content_type="text/markdown",
     platforms='any',
     test_suite='nose.collector',
     classifiers=[
