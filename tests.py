@@ -14,7 +14,7 @@ def test_context_manager():
     with fuckit:
         pass
     
-    assert 'P' != 'NP' # proof is left as an excercise for the reader
+    assert 'P' != 'NP' # proof is left as an exercise for the reader
     
 def test_decorator():
     @fuckit
