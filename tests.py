@@ -24,3 +24,5 @@ def test_decorator():
     assert weight('your mom') > weight('a truck full of McDoubles')
     
     assert 'that was a pretty sick burn'
+
+    assert 'dominance'
